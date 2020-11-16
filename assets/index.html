@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="renderer" content="webkit">
+  <title>vultr contrl x</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm//@primer/css/dist/primer.css" />
+</head>
+
+<body>
+  <div class="container-lg px-3 my-3">
+    <div class="clearfix">
+      <div class="float-right">
+        <button class="btn btn-link" type="button" id="key">设置 API KEY</button>
+      </div>
+    </div>
+    <button class="btn btn-block btn-large btn-outline my-3" type="button" disabled="disabled" id="start">开启</button>
+    <button class="btn btn-block btn-large btn-outline my-3" type="button" disabled="disabled" id="stop">停止</button>
+  </div>
+  <script>
+    const KEY = "key"
+
+    const key = document.querySelector("#key")
+    const start = document.querySelector("#start")
+    const stop = document.querySelector("#stop")
+
+    key.addEventListener("click", async () => {
+      const v = prompt("请输入 API Key")
+      if (v) {
+        localStorage.setItem(KEY, v)
+      }
+      await refresh()
+    })
+
+    start.addEventListener("click", async () => {
+      const key = localStorage.getItem(KEY);
+
+      if (!key) {
+        disableActions()
+        return
+      }
+      
+      const headers = new Headers()
+      headers.append("API-Key", key)
+
+      const response = await fetch('/api/start', {
+        method: "POST",
+        headers
+      })
+
+      if (response.ok) {
+        await refresh()
+      }
+    })
+
+    stop.addEventListener("click", async () => {
+      const key = localStorage.getItem(KEY);
+
+      if (!key) {
+        disableActions()
+        return
+      }
+      
+      const headers = new Headers()
+      headers.append("API-Key", key)
+
+      const response = await fetch('/api/stop', {
+        method: "POST",
+        headers
+      })
+
+      if (response.ok) {
+        await refresh()
+      }
+    })
+
+    async function refresh() {
+      const key = localStorage.getItem(KEY);
+
+      if (!key) {
+        disableActions()
+        return
+      }
+
+      const headers = new Headers()
+      headers.append("API-Key", key)
+
+      const response = await fetch('/api/status', {
+        method: "GET",
+        headers
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        disableActions()
+        return
+      }
+
+      if (result.meta.total < 1) {
+        start.removeAttribute("disabled")
+        stop.setAttribute("disabled", "disabled")
+      } else {
+        start.setAttribute("disabled", "disabled")
+        stop.removeAttribute("disabled")
+      }
+    }
+
+    function disableActions() {
+      start.setAttribute("disabled", "disabled")
+      stop.setAttribute("disabled", "disabled")
+    }
+
+    refresh()
+  </script>
+</body>
+
+</html>
