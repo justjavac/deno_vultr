@@ -49,4 +49,4 @@ chmod +x mod.ts
 
 ### License
 
-[deno_vultr](https://github.com/justjavac/deno_vultr) is released under the MIT License. See the bundled [LICENSE](./LICENSE) file for details.
+[deno_vultr](https://github.com/justjavac/deno_vultr) 的源码使用 MIT License 发布。具体内容请查看 [LICENSE](./LICENSE) 文件。
