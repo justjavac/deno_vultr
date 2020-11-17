@@ -8,13 +8,13 @@
 
 ## 使用
 
-### 前置工作
+### 1. 前置工作
 
-从网上搜一篇 ss、ssr、v2ray、…… 的安装教程，在 Vultr 上安装好。
+1. 从网上搜一篇 ss、ssr、v2ray、…… 的安装教程，在 Vultr 上安装好。
 
-新建一个 snapshot。
+1. 新建一个 snapshot。
 
-### 搭建服务
+### 2. 搭建服务
 
 克隆本仓库：
 
@@ -32,7 +32,7 @@ export const SNAPSHOTID = "xxxxxxxxxxxxx";
 
 **可选：** 可以自行修改 `./config/app.ts` 文件。
 
-### 运行
+### 3. 运行
 
 通用运行方式：
 
