@@ -1,6 +1,5 @@
 # deno_vultr
 
-[![tag](https://img.shields.io/github/release/justjavac/deno_vultr)](https://github.com/justjavac/deno_vultr/releases)
 [![Build Status](https://github.com/justjavac/deno_vultr/workflows/ci/badge.svg?branch=master)](https://github.com/justjavac/deno_vultr/actions)
 [![license](https://img.shields.io/github/license/justjavac/deno_vultr)](https://github.com/justjavac/deno_vultr/blob/master/LICENSE)
 
