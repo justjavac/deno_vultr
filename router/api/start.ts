@@ -1,11 +1,17 @@
-// Copyright 2020 justjavac(迷渡). All rights reserved. MIT license.
-import { RouterContext, Status } from "oak/mod.ts";
+import { Status } from "https://deno.land/x/oak/mod.ts";
+import type { RouterContext } from "https://deno.land/x/oak/mod.ts";
 
-import { API_V1, DCID, OSID, SNAPSHOTID, VPSPLANID } from "/config/vultr.ts";
+import {
+  API_V1,
+  DCID,
+  OSID,
+  SNAPSHOTID,
+  VPSPLANID,
+} from "../../config/vultr.ts";
 
 /**
  * 启动服务
- * 
+ *
  * 从 Snapshot 创建服务器实例
  */
 export default async function start(ctx: RouterContext): Promise<void> {

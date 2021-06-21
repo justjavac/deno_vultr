@@ -1,19 +1,14 @@
-#!/usr/bin/env -S deno run --unstable --allow-net --allow-read --import-map=import_map.json
-// Copyright 2020 justjavac(迷渡). All rights reserved. MIT license.
-import { Application, Router } from "oak/mod.ts";
-import { yellow } from "fmt/colors.ts";
+import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 
-import notFound from "/middleware/notFound.ts";
-import logger from "/middleware/logger.ts";
-import responseTime from "/middleware/responseTime.ts";
-import errorHandler from "/middleware/errorHandler.ts";
+import notFound from "./middleware/notFound.ts";
+import logger from "./middleware/logger.ts";
+import responseTime from "./middleware/responseTime.ts";
+import errorHandler from "./middleware/errorHandler.ts";
 
-import index from "/router/index.ts";
-import status from "/router/api/status.ts";
-import start from "/router/api/start.ts";
-import stop from "/router/api/stop.ts";
-
-import { HOST, PORT } from "/config/app.ts";
+import index from "./router/index.ts";
+import status from "./router/api/status.ts";
+import start from "./router/api/start.ts";
+import stop from "./router/api/stop.ts";
 
 const router = new Router();
 router
@@ -34,11 +29,4 @@ app.use(router.allowedMethods());
 
 app.use(notFound);
 
-app.addEventListener("listen", ({ hostname, port }) => {
-  console.log(
-    "Start listening on " + yellow(`${hostname}:${port}`),
-  );
-});
-
-await app.listen({ hostname: HOST, port: PORT });
-console.log("Finished.");
+addEventListener("fetch", app.fetchEventHandler());

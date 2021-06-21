@@ -1,11 +1,11 @@
-// Copyright 2020 justjavac(迷渡). All rights reserved. MIT license.
-import { RouterContext, Status } from "oak/mod.ts";
+import { Status } from "https://deno.land/x/oak/mod.ts";
+import type { RouterContext } from "https://deno.land/x/oak/mod.ts";
 
-import { API_V2 } from "/config/vultr.ts";
+import { API_V2 } from "../../config/vultr.ts";
 
 /**
  * 停止服务
- * 
+ *
  * 当关机(shutdown)后，vultr 并不会停止计费。因此我们讲实例直接删除。
  */
 export default async function stop(ctx: RouterContext): Promise<void> {

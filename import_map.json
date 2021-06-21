@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "/": "./",
-    "fmt/": "https://deno.land/std@0.75.0/fmt/",
-    "oak/": "https://deno.land/x/oak@v6.3.1/"
-  }
-}

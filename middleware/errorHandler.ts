@@ -1,10 +1,9 @@
-// Copyright 2020 justjavac(迷渡). All rights reserved. MIT license.
-import { Context, isHttpError } from "oak/mod.ts";
+import { Context, isHttpError } from "https://deno.land/x/oak/mod.ts";
 
 /** 错误处理 */
 export default async function errorHandler(
   ctx: Context,
-  next: () => Promise<void>,
+  next: () => Promise<unknown>,
 ): Promise<void> {
   try {
     await next();

@@ -1,5 +1,4 @@
-// Copyright 2020 justjavac(迷渡). All rights reserved. MIT license.
-import { Context, Status } from "oak/mod.ts";
+import { Context, Status } from "https://deno.land/x/oak/mod.ts";
 
 /** 404 页面 */
 export default function notFound(ctx: Context): void {

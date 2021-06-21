@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install deno
-        uses: denolib/setup-deno@master
+        uses: denoland/setup-deno@v1
 
       - name: Log versions
         run: |
@@ -34,18 +34,7 @@ jobs:
         run: deno fmt --check
 
       - name: Run deno lint
-        run: deno lint --unstable
+        run: deno lint
 
       # - name: Run deno test
       #   run: deno test -A --unstable
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: |
-          matrix.os == 'ubuntu-latest' &&
-          startsWith(github.repository, 'justjavac') && 
-          startsWith(github.ref, 'refs/tags/')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          draft: true

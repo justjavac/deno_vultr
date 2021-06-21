@@ -14,12 +14,12 @@ export const OSID = "164";
 export const VPSPLANID = "201";
 
 /** snapshot。**需要自行创建一个 snapshot**
- * 
+ *
  * 通过下面命令查看 snapshot id：
- * 
+ *
  * ```shell
  * curl --location --request GET 'https://api.vultr.com/v2/snapshots' \
- * --header 'Authorization: Bearer {api-key}' 
+ * --header 'Authorization: Bearer {api-key}'
  * ```
  */
-export const SNAPSHOTID = "9b85f9b81e032";
+export const SNAPSHOTID = Deno.env.get("SNAPSHOTID") ?? "9b85f9b81e032";
