@@ -38,7 +38,7 @@ deno install -Afr --no-check https://deno.land/x/deploy/deployctl.ts
 1. 启动本地开发服务器：
 
 ```bash
-deployctl run --no-check --watch ./main.ts
+deployctl run --no-check --watch ./mod.ts
 ```
 
 ## License
