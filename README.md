@@ -1,7 +1,6 @@
 # deno_vultr
 
-[![Build Status](https://github.com/justjavac/deno_vultr/workflows/ci/badge.svg?branch=master)](https://github.com/justjavac/deno_vultr/actions)
-[![license](https://img.shields.io/github/license/justjavac/deno_vultr)](https://github.com/justjavac/deno_vultr/blob/master/LICENSE)
+[![Build Status](https://github.com/justjavac/deno_vultr/workflows/ci/badge.svg)](https://github.com/justjavac/deno_vultr/actions)
 
 目前 Vultr 最低可用套餐为 5 美元/月，即 $0.007/小时。于是我写了这个服务，并提供了一个随时随地可访问的网页，这样可以按需启动 Vultr
 实例，基本上可以控制在**每个月只需要 2 美元**。
